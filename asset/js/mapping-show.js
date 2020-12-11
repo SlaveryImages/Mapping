@@ -28,7 +28,7 @@ $('.mapping-marker-popup-content').each(function() {
     markers.addLayer(marker);
 });
 
-map.addLayer(baseMaps['Streets']);
+map.addLayer(baseMaps['Satellite']);
 map.addLayer(markers);
 map.addControl(new L.Control.Layers(baseMaps));
 map.addControl(new L.Control.FitBounds(markers));

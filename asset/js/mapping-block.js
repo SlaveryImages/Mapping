@@ -20,10 +20,10 @@ function MappingBlock(mapDiv, timelineDiv) {
         defaultProvider = L.tileLayer.provider('OpenStreetMap.Mapnik');
     }
     var baseMaps = {
-        'Default': defaultProvider,
-        'Streets': L.tileLayer.provider('OpenStreetMap.Mapnik'),
         'Satellite': L.tileLayer.provider('Esri.WorldImagery'),
-        'Terrain': L.tileLayer.provider('Esri.WorldShadedRelief')
+        'Terrain': L.tileLayer.provider('Esri.WorldShadedRelief'),
+        'Default': defaultProvider,
+        'Streets': L.tileLayer.provider('OpenStreetMap.Mapnik')
     };
     var noOverlayLayer = new L.GridLayer();
     var groupedOverlays = {'Overlays': {'No overlay': noOverlayLayer}};
@@ -89,7 +89,7 @@ function MappingBlock(mapDiv, timelineDiv) {
     setDefaultView();
 
     // Add base map and grouped WMS overlay layers.
-    map.addLayer(baseMaps['Default']);
+    map.addLayer(baseMaps['Satellite']);
     map.addLayer(noOverlayLayer);
     $.each(mapData['wms'], function(index, data) {
         wmsLayer = L.tileLayer.wms(data.base_url, {
